@@ -148,7 +148,6 @@ export default function App() {
 
 	// handle playing the animation
 	function play() {
-		progress.setValue(0);
 		start(end);
 	}
 
@@ -156,12 +155,12 @@ export default function App() {
 	function next() {
 		// check if the next content is not empty
 		if (current !== content.length - 1) {
-			setLoad(false);
 			let data = [...content];
 			data[current].finish = 1;
 			setContent(data);
 			setCurrent(current + 1);
 			progress.setValue(0);
+			setLoad(false);
 		} else {
 			// the next content is empty
 			close();
@@ -220,6 +219,7 @@ export default function App() {
 								// usePoster
 								onReadyForDisplay={play()}
 								onPlaybackStatusUpdate={(AVPlaybackStatus) => {
+									console.log(AVPlaybackStatus);
 									setLoad(AVPlaybackStatus.isLoaded);
 									setEnd(AVPlaybackStatus.durationMillis);
 								}}
@@ -228,6 +228,7 @@ export default function App() {
 						) : (
 							<Image
 								onLoadEnd={() => {
+									progress.setValue(0);
 									play();
 								}}
 								source={{
