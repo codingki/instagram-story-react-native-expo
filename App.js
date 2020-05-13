@@ -304,7 +304,7 @@ export default function App() {
 									style={{ height: 30, width: 30, borderRadius: 25 }}
 									source={{
 										uri:
-											'https://pbs.twimg.com/profile_images/1243781488480366592/Svj95UOm_400x400.jpg',
+											'https://firebasestorage.googleapis.com/v0/b/instagram-clone-f3106.appspot.com/o/ylKTg2Mg_400x400.jpg?alt=media&token=fb4661aa-3a62-4af7-9051-86e5485ea36f',
 									}}
 								/>
 								<Text
